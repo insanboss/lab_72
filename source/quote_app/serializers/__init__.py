@@ -1,0 +1,1 @@
+from quote_app.serializers.quote_serializer import QuoteSerializer
