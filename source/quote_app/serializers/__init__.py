@@ -1,1 +1,2 @@
-from quote_app.serializers.quote_serializer import QuoteSerializer
+from quote_app.serializers.quote_serializer_get import QuoteSerializerGet
+from quote_app.serializers.quote_serializer_post import QuoteSerializerPost

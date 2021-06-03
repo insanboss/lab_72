@@ -1,5 +1,4 @@
 from rest_framework import serializers
-
 from quote_app.models import Quote
 
 # class Quote(BaseModel):
@@ -13,7 +12,7 @@ from quote_app.models import Quote
 #                               default='new', verbose_name='статус')
 
 
-class QuoteSerializer(serializers.ModelSerializer):
+class QuoteSerializerGet(serializers.ModelSerializer):
     class Meta:
         model = Quote
-        fields = ('text', 'name', 'email', 'rating', 'status')
+        fields = ('id', 'text', 'name', 'email', 'rating', 'status', 'created_at')

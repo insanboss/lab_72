@@ -22,11 +22,20 @@ class BaseModel(models.Model):
 class Quote(BaseModel):
     text = models.TextField(max_length=500, null=False, blank=False, verbose_name='Текст')
     name = models.CharField(max_length=100, null=False, blank=False, verbose_name='Имя добавившего')
-    email = models.EmailField(max_length=100, null=True, blank=True, verbose_name='емаил')
+    email = models.EmailField(max_length=100, null=False, blank=False, verbose_name='емаил')
     rating = models.IntegerField(null=True, blank=True, default=0,  verbose_name='рейтинг')
     status = models.CharField(max_length=50, null=False,
                               blank=False,
                               choices=status_choices,
                               default='new', verbose_name='статус')
 
+    class Meta:
+        permissions = [('list_quotes', 'list quotes')]
 
+    def __str__(self):
+        return "Имя {}. Рейтинг {} . Статус {}".format(self.name, self.rating, self.status)
+
+
+# class Rating(BaseModel):
+#     quote = models.ForeignKey('quote_app.Quote', on_delete=models.CASCADE, related_name='rating')
+#     rating = models.
